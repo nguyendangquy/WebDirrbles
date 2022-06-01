@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
+body {
+  font-family: 'Roboto', sans-serif;
+}
 h1,h2,h3,h4,h5 {
   color: #343131;
 }
@@ -39,6 +43,9 @@ h1,h2,h3,h4,h5 {
 }
 .header-menu li a:hover {
     color: black;
+}
+.header-icon {
+  display: flex;
 }
 .icon-menu i:first-child {
     margin-right: 40px;
@@ -103,9 +110,52 @@ h1,h2,h3,h4,h5 {
   cursor: pointer;
 }
 
-.color-item.active {
-  opacity: 0.8;
+.color-item.red{
+  background-color:red
 }
+.color-item.pink{
+  background-color:pink
+}
+.color-item.black{
+  background-color:black
+}
+.color-item.yellow{
+  background-color:yellow
+}
+.color-item.gray{
+  background-color:gray
+}
+.color-item.lime{
+  background-color:lime
+}
+.color-item.blue{
+  background-color:blue
+}
+.color-item.silvel{
+  background-color:silver
+}
+.color-item.green{
+  background-color:green
+}
+.color-item.olive{
+  background-color:olive
+}
+.color-item.navy{
+  background-color:navy
+}
+.color-item.teal{
+  background-color:teal
+}
+.color-item.purple{
+  background-color:purple
+}
+.color-item.maroon{
+  background-color:maroon
+}
+.color-item.aqua{
+  background-color:aqua
+}
+
 /* filter */
 input[type=range] {
     -webkit-appearance: none;
@@ -217,7 +267,8 @@ input[type=range] {
     flex-wrap: wrap;
 }
 .product-item {
-    width: 28%;
+    width: 25%;
+    flex-grow: 1;
     margin-left: 50px;
 }
 .product-item img {
