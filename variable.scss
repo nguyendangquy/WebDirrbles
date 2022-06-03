@@ -1,0 +1,50 @@
+$primary-color: #887f7f;
+$heading-color: #343131;
+
+$text-color: #fff;
+$bg-color: #ffff;
+
+$bg-filter: #03a9f4;
+
+// $margin-top: 40px;
+
+$bg-color-navbar: #292d38;
+
+$color-array:(  
+    black: black,                       
+    blue: blue,
+    green: green,
+    pink: pink,
+    gray: gray,
+    navy: navy,
+    red: red,
+    aqua: aqua, 
+    lime: lime,
+    silver: silver,
+    olive: olive,
+    yellow: yellow,
+    teal: teal,
+    purple: purple,
+    maroon: maroon
+);
+        
+@each $color-name, $color-value in $color-array {
+    .#{$color-name} {
+      background: $color-value;
+    }
+}
+
+$spaceamounts: (5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 60 ,75, 100);
+$sides: (top, bottom, left, right); 
+
+@each $space in $spaceamounts {
+  @each $side in $sides {
+    .m-#{str-slice($side, 0, 1)}-#{$space} {
+      margin-#{$side}: #{$space}px !important;
+    }
+  
+    .p-#{str-slice($side, 0, 1)}-#{$space} {
+      padding-#{$side}: #{$space}px !important;
+    }
+  }
+}
