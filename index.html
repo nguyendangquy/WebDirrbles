@@ -1,418 +1,657 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
     <!-- reset css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" /><!-- fontawesome icon -->
-    <link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- fontawesome icon -->
+    <link
+      rel="stylesheet prefetch"
+      href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="responsive.css">
-</head>
-
-<body>
+  <body>
     <div id="warrper">
-        <div class="header">
-            <div class="header-container">
-                <img src="images/logo.png" alt="">
-                <ul class="header-menu">
-                    <li><a href="#">MEN</a></li>
-                    <li><a href="#">WOMEN</a></li>
-                    <li><a href="#">KIDS</a></li>
-                    <li><a href="#">CUSTOMIZE</a></li>
-                    <li><a href="#">FAVORITES</a></li>
-                </ul>
-                <div class="header-icon">
-                    <div class="icon-menu">
-                        <i class="fa-solid fa-cart-arrow-down"></i>
-                        <i class="fa-solid fa-user"></i>
-                    </div>
-                    <div class="icon-navbar">
-                        <i class="fa-solid fa-bars"></i>
-                    </div>
-                </div>
+      <div class="header">
+        <div class="header-container">
+          <img src="images/logo.png" alt="" />
+          <ul class="header-menu">
+            <li><a href="#">MEN</a></li>
+            <li><a href="#">WOMEN</a></li>
+            <li><a href="#">KIDS</a></li>
+            <li><a href="#">CUSTOMIZE</a></li>
+            <li><a href="#">FAVORITES</a></li>
+          </ul>
+          <div class="header-icon">
+            <div class="icon-menu">
+              <i class="fa-solid fa-cart-arrow-down"></i>
+              <i class="fa-solid fa-user"></i>
             </div>
+            <div class="icon-navbar">
+              <i class="fa-solid fa-bars"></i>
+            </div>
+          </div>
         </div>
-        <div class="content">
-            <div class="content-container">
-                <div class="content-left">
-                    <div class="tab-title">
-                        <h3>SNEAKER'S</h3>
-                    </div>
-                    <div class="tab-lifestyle">
-                        <div class="tab-title">
-                            <i class="fa-solid fa-bars" id = "icon-tab"></i>
-                            <h4>LIFESTYLE</h4>
-                        </div>
-                        <ul class="tab-lifestyle_nav">
-                            <li><a href="#">Original(533)</a></li>
-                            <li><a href="#">Basketball(332)</a></li>
-                            <li><a href="#">Football(200)</a></li>
-                            <li><a href="#">Soccer(423)</a></li>
-                            <li><a href="#">Training(256)</a></li>
-                        </ul>
-                    </div>
-                    <div class="block-content">
-                        <div class="tab-filter">
-                            <h4>FILTER</h4>
-                            <div class="range-wrap">
-                                <div class="range-value" id="rangeV"></div>
-                                <input id="range" type="range" min="200" max="800" value="200" step="1">
-                            </div>
-                        </div>
-                        <div class="tab-color">
-                            <h4>COLOR</h4>
-                            <div class="color-row">
-                                <div class="color-item red" ></div>
-                                <div class="color-item pink"></div>
-                                <div class="color-item black"></div>
-                                <div class="color-item yellow"></div>
-                                <div class="color-item gray"></div>
-                            </div>
-                            <div class="color-row">
-                                <div class="color-item lime"></div>
-                                <div class="color-item blue"></div>
-                                <div class="color-item silvel"></div>
-                                <div class="color-item green"></div>
-                                <div class="color-item olive"></div>
-                            </div>
-                            <div class="color-row">
-                                <div class="color-item navy"></div>
-                                <div class="color-item teal"></div>
-                                <div class="color-item purple"></div>
-                                <div class="color-item maroon"></div>
-                                <div class="color-item aqua"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="content-right">
-                    <div class="heading-title">
-                        <h1>632 LIFESTYLE SNEAKER</h1>
-                        <div class="search-box">
-                            <input type="search" id="search-input" placeholder="SEARCH">
-                            <button class="search-btn">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="product">
-                        <div class="product-item">
-                            <div class="product-poster">
-                                <img src="images/giay.jpg">
-                                <div class="product-cart">
-                                    <i class="fa-solid fa-cart-arrow-down"></i>
-                                </div>
-                            </div>
-                            <div class="product-title">
-                                <div class="product-title_heading">
-                                    <h3>AIR JORDAN RETO</h3>
-                                    <p class="product-price">$220</p>
-                                </div>
-                                <div class="product-title_vote">
-                                    <div class="stars">
-                                        <form action="">
-                                            <input class="star star-1" id="star-1" type="radio" name="star" />
-                                            <label class="star star-1" for="star-1"></label>
-                                            <input class="star star-2" id="star-2" type="radio" name="star" />
-                                            <label class="star star-2" for="star-2"></label>
-                                            <input class="star star-3" id="star-3" type="radio" name="star" />
-                                            <label class="star star-3" for="star-3"></label>
-                                            <input class="star star-4" id="star-4" type="radio" name="star" />
-                                            <label class="star star-4" for="star-4"></label>
-                                            <input class="star star-5" id="star-5" type="radio" name="star" />
-                                            <label class="star star-5" for="star-5"></label>
-                                        </form>
-                                    </div>
-                                    <p class="color-number">9COLORS</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item">
-                            <div class="product-poster">
-                                <img src="images/giay.jpg">
-                                <div class="product-cart">
-                                    <i class="fa-solid fa-cart-arrow-down"></i>
-                                </div>
-                            </div>
-                            <div class="product-title">
-                                <div class="product-title_heading">
-                                    <h3>AIR JORDAN RETO</h3>
-                                    <p class="product-price">$220</p>
-                                </div>
-                                <div class="product-title_vote">
-                                    <div class="stars">
-                                        <form action="">
-                                            <input class="star star-1" id="star-1" type="radio" name="star" />
-                                            <label class="star star-1" for="star-1"></label>
-                                            <input class="star star-2" id="star-2" type="radio" name="star" />
-                                            <label class="star star-2" for="star-2"></label>
-                                            <input class="star star-3" id="star-3" type="radio" name="star" />
-                                            <label class="star star-3" for="star-3"></label>
-                                            <input class="star star-4" id="star-4" type="radio" name="star" />
-                                            <label class="star star-4" for="star-4"></label>
-                                            <input class="star star-5" id="star-5" type="radio" name="star" />
-                                            <label class="star star-5" for="star-5"></label>
-                                        </form>
-                                    </div>
-                                    <p class="color-number">9COLORS</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item">
-                            <div class="product-poster">
-                                <img src="images/giay.jpg">
-                                <div class="product-cart">
-                                    <i class="fa-solid fa-cart-arrow-down"></i>
-                                </div>
-                            </div>
-                            <div class="product-title">
-                                <div class="product-title_heading">
-                                    <h3>AIR JORDAN RETO</h3>
-                                    <p class="product-price">$220</p>
-                                </div>
-                                <div class="product-title_vote">
-                                    <div class="stars">
-                                        <form action="">
-                                            <input class="star star-1" id="star-1" type="radio" name="star" />
-                                            <label class="star star-1" for="star-1"></label>
-                                            <input class="star star-2" id="star-2" type="radio" name="star" />
-                                            <label class="star star-2" for="star-2"></label>
-                                            <input class="star star-3" id="star-3" type="radio" name="star" />
-                                            <label class="star star-3" for="star-3"></label>
-                                            <input class="star star-4" id="star-4" type="radio" name="star" />
-                                            <label class="star star-4" for="star-4"></label>
-                                            <input class="star star-5" id="star-5" type="radio" name="star" />
-                                            <label class="star star-5" for="star-5"></label>
-                                        </form>
-                                    </div>
-                                    <p class="color-number">9COLORS</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item">
-                            <div class="product-poster">
-                                <img src="images/giay.jpg">
-                                <div class="product-cart">
-                                    <i class="fa-solid fa-cart-arrow-down"></i>
-                                </div>
-                            </div>
-                            <div class="product-title">
-                                <div class="product-title_heading">
-                                    <h3>AIR JORDAN RETO</h3>
-                                    <p class="product-price">$220</p>
-                                </div>
-                                <div class="product-title_vote">
-                                    <div class="stars">
-                                        <form action="">
-                                            <input class="star star-1" id="star-1" type="radio" name="star" />
-                                            <label class="star star-1" for="star-1"></label>
-                                            <input class="star star-2" id="star-2" type="radio" name="star" />
-                                            <label class="star star-2" for="star-2"></label>
-                                            <input class="star star-3" id="star-3" type="radio" name="star" />
-                                            <label class="star star-3" for="star-3"></label>
-                                            <input class="star star-4" id="star-4" type="radio" name="star" />
-                                            <label class="star star-4" for="star-4"></label>
-                                            <input class="star star-5" id="star-5" type="radio" name="star" />
-                                            <label class="star star-5" for="star-5"></label>
-                                        </form>
-                                    </div>
-                                    <p class="color-number">9COLORS</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item">
-                            <div class="product-poster">
-                                <img src="images/giay.jpg">
-                                <div class="product-cart">
-                                    <i class="fa-solid fa-cart-arrow-down"></i>
-                                </div>
-                            </div>
-                            <div class="product-title">
-                                <div class="product-title_heading">
-                                    <h3>AIR JORDAN RETO</h3>
-                                    <p class="product-price">$220</p>
-                                </div>
-                                <div class="product-title_vote">
-                                    <div class="stars">
-                                        <form action="">
-                                            <input class="star star-1" id="star-1" type="radio" name="star" />
-                                            <label class="star star-1" for="star-1"></label>
-                                            <input class="star star-2" id="star-2" type="radio" name="star" />
-                                            <label class="star star-2" for="star-2"></label>
-                                            <input class="star star-3" id="star-3" type="radio" name="star" />
-                                            <label class="star star-3" for="star-3"></label>
-                                            <input class="star star-4" id="star-4" type="radio" name="star" />
-                                            <label class="star star-4" for="star-4"></label>
-                                            <input class="star star-5" id="star-5" type="radio" name="star" />
-                                            <label class="star star-5" for="star-5"></label>
-                                        </form>
-                                    </div>
-                                    <p class="color-number">9COLORS</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item">
-                            <div class="product-poster">
-                                <img src="images/giay.jpg">
-                                <div class="product-cart">
-                                    <i class="fa-solid fa-cart-arrow-down"></i>
-                                </div>
-                            </div>
-                            <div class="product-title">
-                                <div class="product-title_heading">
-                                    <h3>AIR JORDAN RETO</h3>
-                                    <p class="product-price">$220</p>
-                                </div>
-                                <div class="product-title_vote">
-                                    <div class="stars">
-                                        <form action="">
-                                            <input class="star star-1" id="star-1" type="radio" name="star" />
-                                            <label class="star star-1" for="star-1"></label>
-                                            <input class="star star-2" id="star-2" type="radio" name="star" />
-                                            <label class="star star-2" for="star-2"></label>
-                                            <input class="star star-3" id="star-3" type="radio" name="star" />
-                                            <label class="star star-3" for="star-3"></label>
-                                            <input class="star star-4" id="star-4" type="radio" name="star" />
-                                            <label class="star star-4" for="star-4"></label>
-                                            <input class="star star-5" id="star-5" type="radio" name="star" />
-                                            <label class="star star-5" for="star-5"></label>
-                                        </form>
-                                    </div>
-                                    <p class="color-number">9COLORS</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item">
-                            <div class="product-poster">
-                                <img src="images/giay.jpg">
-                                <div class="product-cart">
-                                    <i class="fa-solid fa-cart-arrow-down"></i>
-                                </div>
-                            </div>
-                            <div class="product-title">
-                                <div class="product-title_heading">
-                                    <h3>AIR JORDAN RETO</h3>
-                                    <p class="product-price">$220</p>
-                                </div>
-                                <div class="product-title_vote">
-                                    <div class="stars">
-                                        <form action="">
-                                            <input class="star star-1" id="star-1" type="radio" name="star" />
-                                            <label class="star star-1" for="star-1"></label>
-                                            <input class="star star-2" id="star-2" type="radio" name="star" />
-                                            <label class="star star-2" for="star-2"></label>
-                                            <input class="star star-3" id="star-3" type="radio" name="star" />
-                                            <label class="star star-3" for="star-3"></label>
-                                            <input class="star star-4" id="star-4" type="radio" name="star" />
-                                            <label class="star star-4" for="star-4"></label>
-                                            <input class="star star-5" id="star-5" type="radio" name="star" />
-                                            <label class="star star-5" for="star-5"></label>
-                                        </form>
-                                    </div>
-                                    <p class="color-number">9COLORS</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item">
-                            <div class="product-poster">
-                                <img src="images/giay.jpg">
-                                <div class="product-cart">
-                                    <i class="fa-solid fa-cart-arrow-down"></i>
-                                </div>
-                            </div>
-                            <div class="product-title">
-                                <div class="product-title_heading">
-                                    <h3>AIR JORDAN RETO</h3>
-                                    <p class="product-price">$220</p>
-                                </div>
-                                <div class="product-title_vote">
-                                    <div class="stars">
-                                        <form action="">
-                                            <input class="star star-1" id="star-1" type="radio" name="star" />
-                                            <label class="star star-1" for="star-1"></label>
-                                            <input class="star star-2" id="star-2" type="radio" name="star" />
-                                            <label class="star star-2" for="star-2"></label>
-                                            <input class="star star-3" id="star-3" type="radio" name="star" />
-                                            <label class="star star-3" for="star-3"></label>
-                                            <input class="star star-4" id="star-4" type="radio" name="star" />
-                                            <label class="star star-4" for="star-4"></label>
-                                            <input class="star star-5" id="star-5" type="radio" name="star" />
-                                            <label class="star star-5" for="star-5"></label>
-                                        </form>
-                                    </div>
-                                    <p class="color-number">9COLORS</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item">
-                            <div class="product-poster">
-                                <img src="images/giay.jpg">
-                                <div class="product-cart">
-                                    <i class="fa-solid fa-cart-arrow-down"></i>
-                                </div>
-                            </div>
-                            <div class="product-title">
-                                <div class="product-title_heading">
-                                    <h3>AIR JORDAN RETO</h3>
-                                    <p class="product-price">$220</p>
-                                </div>
-                                <div class="product-title_vote">
-                                    <div class="stars">
-                                        <form action="">
-                                            <input class="star star-1" id="star-1" type="radio" name="star" />
-                                            <label class="star star-1" for="star-1"></label>
-                                            <input class="star star-2" id="star-2" type="radio" name="star" />
-                                            <label class="star star-2" for="star-2"></label>
-                                            <input class="star star-3" id="star-3" type="radio" name="star" />
-                                            <label class="star star-3" for="star-3"></label>
-                                            <input class="star star-4" id="star-4" type="radio" name="star" />
-                                            <label class="star star-4" for="star-4"></label>
-                                            <input class="star star-5" id="star-5" type="radio" name="star" />
-                                            <label class="star star-5" for="star-5"></label>
-                                        </form>
-                                    </div>
-                                    <p class="color-number">9COLORS</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      </div>
+      <div class="content">
+        <div class="content-container">
+          <div class="content-container-left">
+            <div class="tab-title">
+              <h3>SNEAKER'S</h3>
             </div>
-            <div class="load-more">
-                <p>LOAD MORE</p>
-                <i class="fa-light fa-horizontal-rule"></i>
+            <div class="tab-lifestyle">
+              <div class="tab-title">
+                <i class="fa-solid fa-bars" id="icon-tab"></i>
+                <h4>LIFESTYLE</h4>
+              </div>
+              <ul class="tab-lifestyle_nav">
+                <li><a href="#">Original(533)</a></li>
+                <li><a href="#">Basketball(332)</a></li>
+                <li><a href="#">Football(200)</a></li>
+                <li><a href="#">Soccer(423)</a></li>
+                <li><a href="#">Training(256)</a></li>
+              </ul>
             </div>
+            <div class="block-content">
+              <div class="tab-filter">
+                <h4>FILTER</h4>
+                <div class="range-wrap">
+                  <div class="range-value" id="rangeV"></div>
+                  <input
+                    id="range"
+                    type="range"
+                    min="200"
+                    max="800"
+                    value="200"
+                    step="1"
+                  />
+                </div>
+              </div>
+              <div class="tab-color">
+                <h4>COLOR</h4>
+                <div class="tab-color-row">
+                  <div class="color-item red"></div>
+                  <div class="color-item pink"></div>
+                  <div class="color-item black"></div>
+                  <div class="color-item yellow"></div>
+                  <div class="color-item gray"></div>
+                </div>
+                <div class="tab-color-row">
+                  <div class="color-item lime"></div>
+                  <div class="color-item blue"></div>
+                  <div class="color-item silver"></div>
+                  <div class="color-item green"></div>
+                  <div class="color-item olive"></div>
+                </div>
+                <div class="tab-color-row">
+                  <div class="color-item navy"></div>
+                  <div class="color-item teal"></div>
+                  <div class="color-item purple"></div>
+                  <div class="color-item maroon"></div>
+                  <div class="color-item aqua"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="content-container-right">
+            <div class="heading-title">
+              <h1>632 LIFESTYLE SNEAKER</h1>
+              <div class="search-box">
+                <input type="search" id="search-input" placeholder="SEARCH" />
+                <button class="search-btn">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+              </div>
+            </div>
+            <div class="product">
+              <div class="product-item">
+                <div class="product-poster">
+                  <img src="images/giay.jpg" />
+                  <div class="product-cart">
+                    <i class="fa-solid fa-cart-arrow-down"></i>
+                  </div>
+                </div>
+                <div class="product-title">
+                  <div class="product-title_heading">
+                    <h3>AIR JORDAN RETO</h3>
+                    <p class="product-price">$220</p>
+                  </div>
+                  <div class="product-title_vote">
+                    <div class="stars">
+                      <form action="">
+                        <input
+                          class="star star-1"
+                          id="star-1"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-1" for="star-1"></label>
+                        <input
+                          class="star star-2"
+                          id="star-2"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-2" for="star-2"></label>
+                        <input
+                          class="star star-3"
+                          id="star-3"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-3" for="star-3"></label>
+                        <input
+                          class="star star-4"
+                          id="star-4"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-4" for="star-4"></label>
+                        <input
+                          class="star star-5"
+                          id="star-5"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-5" for="star-5"></label>
+                      </form>
+                    </div>
+                    <p class="color-number">9COLORS</p>
+                  </div>
+                </div>
+              </div>
+              <div class="product-item">
+                <div class="product-poster">
+                  <img src="images/giay.jpg" />
+                  <div class="product-cart">
+                    <i class="fa-solid fa-cart-arrow-down"></i>
+                  </div>
+                </div>
+                <div class="product-title">
+                  <div class="product-title_heading">
+                    <h3>AIR JORDAN RETO</h3>
+                    <p class="product-price">$220</p>
+                  </div>
+                  <div class="product-title_vote">
+                    <div class="stars">
+                      <form action="">
+                        <input
+                          class="star star-1"
+                          id="star-1"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-1" for="star-1"></label>
+                        <input
+                          class="star star-2"
+                          id="star-2"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-2" for="star-2"></label>
+                        <input
+                          class="star star-3"
+                          id="star-3"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-3" for="star-3"></label>
+                        <input
+                          class="star star-4"
+                          id="star-4"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-4" for="star-4"></label>
+                        <input
+                          class="star star-5"
+                          id="star-5"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-5" for="star-5"></label>
+                      </form>
+                    </div>
+                    <p class="color-number">9COLORS</p>
+                  </div>
+                </div>
+              </div>
+              <div class="product-item">
+                <div class="product-poster">
+                  <img src="images/giay.jpg" />
+                  <div class="product-cart">
+                    <i class="fa-solid fa-cart-arrow-down"></i>
+                  </div>
+                </div>
+                <div class="product-title">
+                  <div class="product-title_heading">
+                    <h3>AIR JORDAN RETO</h3>
+                    <p class="product-price">$220</p>
+                  </div>
+                  <div class="product-title_vote">
+                    <div class="stars">
+                      <form action="">
+                        <input
+                          class="star star-1"
+                          id="star-1"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-1" for="star-1"></label>
+                        <input
+                          class="star star-2"
+                          id="star-2"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-2" for="star-2"></label>
+                        <input
+                          class="star star-3"
+                          id="star-3"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-3" for="star-3"></label>
+                        <input
+                          class="star star-4"
+                          id="star-4"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-4" for="star-4"></label>
+                        <input
+                          class="star star-5"
+                          id="star-5"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-5" for="star-5"></label>
+                      </form>
+                    </div>
+                    <p class="color-number">9COLORS</p>
+                  </div>
+                </div>
+              </div>
+              <div class="product-item">
+                <div class="product-poster">
+                  <img src="images/giay.jpg" />
+                  <div class="product-cart">
+                    <i class="fa-solid fa-cart-arrow-down"></i>
+                  </div>
+                </div>
+                <div class="product-title">
+                  <div class="product-title_heading">
+                    <h3>AIR JORDAN RETO</h3>
+                    <p class="product-price">$220</p>
+                  </div>
+                  <div class="product-title_vote">
+                    <div class="stars">
+                      <form action="">
+                        <input
+                          class="star star-1"
+                          id="star-1"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-1" for="star-1"></label>
+                        <input
+                          class="star star-2"
+                          id="star-2"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-2" for="star-2"></label>
+                        <input
+                          class="star star-3"
+                          id="star-3"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-3" for="star-3"></label>
+                        <input
+                          class="star star-4"
+                          id="star-4"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-4" for="star-4"></label>
+                        <input
+                          class="star star-5"
+                          id="star-5"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-5" for="star-5"></label>
+                      </form>
+                    </div>
+                    <p class="color-number">9COLORS</p>
+                  </div>
+                </div>
+              </div>
+              <div class="product-item">
+                <div class="product-poster">
+                  <img src="images/giay.jpg" />
+                  <div class="product-cart">
+                    <i class="fa-solid fa-cart-arrow-down"></i>
+                  </div>
+                </div>
+                <div class="product-title">
+                  <div class="product-title_heading">
+                    <h3>AIR JORDAN RETO</h3>
+                    <p class="product-price">$220</p>
+                  </div>
+                  <div class="product-title_vote">
+                    <div class="stars">
+                      <form action="">
+                        <input
+                          class="star star-1"
+                          id="star-1"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-1" for="star-1"></label>
+                        <input
+                          class="star star-2"
+                          id="star-2"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-2" for="star-2"></label>
+                        <input
+                          class="star star-3"
+                          id="star-3"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-3" for="star-3"></label>
+                        <input
+                          class="star star-4"
+                          id="star-4"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-4" for="star-4"></label>
+                        <input
+                          class="star star-5"
+                          id="star-5"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-5" for="star-5"></label>
+                      </form>
+                    </div>
+                    <p class="color-number">9COLORS</p>
+                  </div>
+                </div>
+              </div>
+              <div class="product-item">
+                <div class="product-poster">
+                  <img src="images/giay.jpg" />
+                  <div class="product-cart">
+                    <i class="fa-solid fa-cart-arrow-down"></i>
+                  </div>
+                </div>
+                <div class="product-title">
+                  <div class="product-title_heading">
+                    <h3>AIR JORDAN RETO</h3>
+                    <p class="product-price">$220</p>
+                  </div>
+                  <div class="product-title_vote">
+                    <div class="stars">
+                      <form action="">
+                        <input
+                          class="star star-1"
+                          id="star-1"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-1" for="star-1"></label>
+                        <input
+                          class="star star-2"
+                          id="star-2"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-2" for="star-2"></label>
+                        <input
+                          class="star star-3"
+                          id="star-3"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-3" for="star-3"></label>
+                        <input
+                          class="star star-4"
+                          id="star-4"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-4" for="star-4"></label>
+                        <input
+                          class="star star-5"
+                          id="star-5"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-5" for="star-5"></label>
+                      </form>
+                    </div>
+                    <p class="color-number">9COLORS</p>
+                  </div>
+                </div>
+              </div>
+              <div class="product-item">
+                <div class="product-poster">
+                  <img src="images/giay.jpg" />
+                  <div class="product-cart">
+                    <i class="fa-solid fa-cart-arrow-down"></i>
+                  </div>
+                </div>
+                <div class="product-title">
+                  <div class="product-title_heading">
+                    <h3>AIR JORDAN RETO</h3>
+                    <p class="product-price">$220</p>
+                  </div>
+                  <div class="product-title_vote">
+                    <div class="stars">
+                      <form action="">
+                        <input
+                          class="star star-1"
+                          id="star-1"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-1" for="star-1"></label>
+                        <input
+                          class="star star-2"
+                          id="star-2"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-2" for="star-2"></label>
+                        <input
+                          class="star star-3"
+                          id="star-3"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-3" for="star-3"></label>
+                        <input
+                          class="star star-4"
+                          id="star-4"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-4" for="star-4"></label>
+                        <input
+                          class="star star-5"
+                          id="star-5"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-5" for="star-5"></label>
+                      </form>
+                    </div>
+                    <p class="color-number">9COLORS</p>
+                  </div>
+                </div>
+              </div>
+              <div class="product-item">
+                <div class="product-poster">
+                  <img src="images/giay.jpg" />
+                  <div class="product-cart">
+                    <i class="fa-solid fa-cart-arrow-down"></i>
+                  </div>
+                </div>
+                <div class="product-title">
+                  <div class="product-title_heading">
+                    <h3>AIR JORDAN RETO</h3>
+                    <p class="product-price">$220</p>
+                  </div>
+                  <div class="product-title_vote">
+                    <div class="stars">
+                      <form action="">
+                        <input
+                          class="star star-1"
+                          id="star-1"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-1" for="star-1"></label>
+                        <input
+                          class="star star-2"
+                          id="star-2"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-2" for="star-2"></label>
+                        <input
+                          class="star star-3"
+                          id="star-3"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-3" for="star-3"></label>
+                        <input
+                          class="star star-4"
+                          id="star-4"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-4" for="star-4"></label>
+                        <input
+                          class="star star-5"
+                          id="star-5"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-5" for="star-5"></label>
+                      </form>
+                    </div>
+                    <p class="color-number">9COLORS</p>
+                  </div>
+                </div>
+              </div>
+              <div class="product-item">
+                <div class="product-poster">
+                  <img src="images/giay.jpg" />
+                  <div class="product-cart">
+                    <i class="fa-solid fa-cart-arrow-down"></i>
+                  </div>
+                </div>
+                <div class="product-title">
+                  <div class="product-title_heading">
+                    <h3>AIR JORDAN RETO</h3>
+                    <p class="product-price">$220</p>
+                  </div>
+                  <div class="product-title_vote">
+                    <div class="stars">
+                      <form action="">
+                        <input
+                          class="star star-1"
+                          id="star-1"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-1" for="star-1"></label>
+                        <input
+                          class="star star-2"
+                          id="star-2"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-2" for="star-2"></label>
+                        <input
+                          class="star star-3"
+                          id="star-3"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-3" for="star-3"></label>
+                        <input
+                          class="star star-4"
+                          id="star-4"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-4" for="star-4"></label>
+                        <input
+                          class="star star-5"
+                          id="star-5"
+                          type="radio"
+                          name="star"
+                        />
+                        <label class="star star-5" for="star-5"></label>
+                      </form>
+                    </div>
+                    <p class="color-number">9COLORS</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <!-- footer -->
-        <div class="footer">
-            <div class="footer-container">
-                <ul class="footer-navbar">
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Terms</a></li>
-                    <li><a href="#">Privacy</a></li>
-                    <li><a href="#">Payment</a></li>
-                </ul>
-                <div class="footer-logo">
-                    <img src="images/logo.png">
-                </div>
-                <div class="footer-contact">
-                    <i class="fa-brands fa-facebook-f"></i>
-                    <i class="fa-brands fa-google"></i>
-                    <i class="fa-brands fa-twitter"></i>
-                    <i class="fa-brands fa-youtube"></i>
-                </div>
-            </div>
+        <div class="load-more">
+          <p>LOAD MORE</p>
+          <i class="fa-light fa-horizontal-rule"></i>
         </div>
+      </div>
+      <!-- footer -->
+      <div class="footer">
+        <div class="footer-container">
+          <ul class="footer-container-navbar">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Payment</a></li>
+          </ul>
+          <div class="footer-container-logo">
+            <img src="images/logo.png" />
+          </div>
+          <div class="footer-container-contact">
+            <i class="fa-brands fa-facebook-f"></i>
+            <i class="fa-brands fa-google"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-youtube"></i>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="app.js"></script>
-</body>
-
+  </body>
 </html>
