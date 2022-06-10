@@ -107,11 +107,9 @@ const listRegexInput = [
 var inputsForm = document.getElementsByClassName("form-column-input");
 var messagesError = document.getElementsByClassName("input-item__error");
 const validateOnchange = (index) => {
-  inputsForm;
-  messagesError;
   listRegexInput[index].input.addEventListener("input", (e) => {
     const value = listRegexInput[index].input.value.trim();
-    if (value) {
+    if (value.length == 0) {
       inputsForm[index].classList.add("input-item-border__error");
       messagesError[index].innerText = listRegexInput[index].required;
     } else if (listRegexInput[index].rule) {
