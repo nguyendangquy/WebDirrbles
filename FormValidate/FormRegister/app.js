@@ -12,15 +12,15 @@ signInButton.addEventListener("click", () => {
 });
 
 /* Validate Form */
-let fullName = document.getElementById("nameInput");
-let email = document.getElementById("emailInput");
-let password = document.getElementById("passInput");
-let passwordConfirm = document.getElementById("confirmInput");
-let btnSubmitSignup = document.getElementById("disableBtn");
-let btnSubmitSignin = document.getElementById("disableSignin");
-let emailSignin = document.getElementById("emailSignin");
-let passSignin = document.getElementById("passSignin");
-let eyePassword = document.getElementById("eyePassword");
+const fullName = document.getElementById("nameInput");
+const email = document.getElementById("emailInput");
+const password = document.getElementById("passInput");
+const passwordConfirm = document.getElementById("confirmInput");
+const btnSubmitSignup = document.getElementById("disableBtn");
+const btnSubmitSignin = document.getElementById("disableSignin");
+const emailSignin = document.getElementById("emailSignin");
+const passSignin = document.getElementById("passSignin");
+const eyePassword = document.getElementById("eyePassword");
 
 const regexFullName =
   /^(?=.*\D)(?=.*[^@$!%*?&])[\D]*[^@$!%`1*?&]*[\D]*[^~!@##$%^&*()0-9]+$/;
@@ -28,7 +28,7 @@ const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 const regexPassword =
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
 
-let listRegexInput = [
+const listRegexInput = [
   {
     id: "name",
     index: 0,
@@ -104,57 +104,35 @@ let listRegexInput = [
   },
 ];
 
-function validateOnchange(i) {
-  const inputForm = document.getElementsByClassName("form-column-input");
-  const messageError = document.getElementsByClassName("input-item__error");
-
-  listRegexInput[i].input.addEventListener("input", (e) => {
-    const value = listRegexInput[i].input.value.trim();
-    if (value.length == 0) {
-      inputForm[i].classList.add("input-item-border__error");
-      messageError[i].innerText = listRegexInput[i].required;
-    } else {
-      if (listRegexInput[i].rule) {
-        for (let j = 0; j < listRegexInput[i].rule.length; j++) {
-          let formatCheck = listRegexInput[i].rule[j].regex.test(value);
-          if (!formatCheck) {
-            inputForm[i].classList.add("input-item-border__error");
-            messageError[i].innerText = listRegexInput[i].rule[j].message;
-          } else {
-            inputForm[i].classList.remove("input-item-border__error");
-            messageError[i].innerText = "";
-          }
+var inputsForm = document.getElementsByClassName("form-column-input");
+var messagesError = document.getElementsByClassName("input-item__error");
+const validateOnchange = (index) => {
+  inputsForm;
+  messagesError;
+  listRegexInput[index].input.addEventListener("input", (e) => {
+    const value = listRegexInput[index].input.value.trim();
+    if (value) {
+      inputsForm[index].classList.add("input-item-border__error");
+      messagesError[index].innerText = listRegexInput[index].required;
+    } else if (listRegexInput[index].rule) {
+      for (let j = 0; j < listRegexInput[index].rule.length; j++) {
+        let formatCheck = listRegexInput[index].rule[j].regex.test(value);
+        if (!formatCheck) {
+          inputsForm[index].classList.add("input-item-border__error");
+          messagesError[index].innerText =
+            listRegexInput[index].rule[j].message;
+        } else {
+          inputsForm[index].classList.remove("input-item-border__error");
+          messagesError[index].innerText = "";
         }
       }
-      if (listRegexInput[i].id === "confirm") {
-        checkPassword(i);
-      }
+    }
+    if (listRegexInput[index].id === "confirm") {
+      checkPassword(index);
     }
   });
-}
-function setSuccessFor(isSignin) {
-  const inputForm = document.getElementsByClassName("form-column-input");
-  const messageError = document.getElementsByClassName("input-item__error");
-
-  let checkSignin = true;
-  let checkSignup = true;
-  // listRegexInput.forEach((item, index) => {
-  //   if (item.platform === "signup") {
-  //     if (!item.input.value.trim()) {
-  //       inputForm[index].classList.add("input-item-border__error");
-  //       messageError[index].innerText = item.required;
-  //       checkSignup = false;
-  //     }
-  //   }
-  //   if (item.platform === "signin") {
-  //     if (!item.input.value.trim()) {
-  //       inputForm[index].classList.add("input-item-border__error");
-  //       messageError[index].innerText = item.required;
-  //       checkSignin = false;
-  //     }
-  //   }
-  // });
-
+};
+const setSuccessFor = (isSignin) => {
   let listForm = [];
   if (isSignin) {
     listForm = listRegexInput.filter((item) => item.platform === "signin");
@@ -163,48 +141,63 @@ function setSuccessFor(isSignin) {
   }
   listForm.forEach((item) => {
     if (!item.input.value.trim()) {
-      inputForm[item.index].classList.add("input-item-border__error");
-      messageError[item.index].innerText = item.required;
-      if (isSignin) {
-        checkSignin = false;
-      } else {
-        checkSignup = false;
-      }
+      inputsForm[item.index].classList.add("input-item-border__error");
+      messagesError[item.index].innerText = item.required;
     }
   });
 
-  if (!isSignin && checkSignup) {
-    alert("Đăng ký thành công");
-    listRegexInput.forEach((item) => {
-      item.input.value = "";
-    });
-  }
-  if (isSignin && checkSignin) {
-    alert("Đăng nhập thành công");
-    listRegexInput.forEach((item) => {
-      item.input.value = "";
-    });
-  }
-}
-
-function checkPassword(i) {
-  const inputForm = document.getElementsByClassName("form-column-input");
-  const messageError = document.getElementsByClassName("input-item__error");
-
-  if (passwordConfirm.value.trim() !== password.value.trim()) {
-    inputForm[i].classList.add("input-item-border__error");
-    messageError[i].innerText = listRegexInput[i].message;
+  if (isSignin) {
+    successForSignin();
   } else {
-    inputForm[i].classList.remove("input-item-border__error");
-    messageError[i].innerText = "";
+    successForSignup();
   }
-}
+};
+const successForSignup = () => {
+  let check = true;
+  const listForm = listRegexInput.filter((item) => item.platform === "signup");
+  listForm.forEach((item) => {
+    if (messagesError[item.index].innerText) {
+      check = false;
+    }
+  });
+  if (check) {
+    alert("Đăng ký thành công");
+    listForm.forEach((item) => {
+      item.input.value = "";
+    });
+  }
+};
+const successForSignin = () => {
+  let check = true;
+  const listForm = listRegexInput.filter((item) => item.platform === "signin");
+  listForm.forEach((item) => {
+    if (messagesError[item.index].innerText) {
+      check = false;
+    }
+  });
+  if (check) {
+    alert("Đăng nhập thành công");
+    listForm.forEach((item) => {
+      item.input.value = "";
+    });
+  }
+};
+
+const checkPassword = (index) => {
+  if (passwordConfirm.value !== password.value) {
+    inputsForm[index].classList.add("input-item-border__error");
+    messagesError[index].innerText = listRegexInput[index].message;
+  } else {
+    inputsForm[index].classList.remove("input-item-border__error");
+    messagesError[index].innerText = "";
+  }
+};
 
 eyePassword.addEventListener("click", () => {
   passSignin.type = passSignin.type === "password" ? "text" : "password";
 });
 
-function formSubmit() {
+const formSubmit = () => {
   btnSubmitSignup.addEventListener("click", (e) => {
     e.preventDefault();
     setSuccessFor(false);
@@ -218,5 +211,5 @@ function formSubmit() {
   for (let i = 0; i < listRegexInput.length; i++) {
     validateOnchange(i);
   }
-}
+};
 formSubmit();
