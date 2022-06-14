@@ -226,3 +226,40 @@ h1 {
   cursor: pointer;
   font-size: 18px;
 }
+
+
+/* Home page */
+.content-home {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 60px 0;
+  align-items: center;
+}
+#btn-logout {
+  margin-top: 40px;
+  padding: 12px 40px;
+  color: black;
+  font-weight: bold;
+  border-radius: 10px;
+  border: none;
+  background-color: #c0b4b7;
+  cursor: pointer;
+}
+.link-page {
+  margin-bottom: 60px;
+
+}
+.link-page a {
+  color: black;
+  font-weight: bold;
+}
+
+/* About page */
+.content-about {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 60px 0;
+  align-items: center;
+}

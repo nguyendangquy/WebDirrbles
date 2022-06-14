@@ -1,4 +1,11 @@
 /* Convert Form sign-up , sign-in */
+const users = localStorage.getItem("user-login");
+if (users) {
+  alert("Bạn cần đăng xuất trước khi truy cập trang login");
+  window.location = "file:///F:/FormValidate/home.html";
+} else {
+  console.log("not loggedin");
+}
 const signUpButton = document.getElementById("signUp");
 const signInButton = document.getElementById("signIn");
 const container = document.getElementById("container");
@@ -168,6 +175,7 @@ const successForSignup = () => {
 const successForSignin = () => {
   let check = true;
   const listForm = listRegexInput.filter((item) => item.platform === "signin");
+
   listForm.forEach((item) => {
     if (messagesError[item.index].innerText) {
       check = false;
@@ -175,9 +183,12 @@ const successForSignin = () => {
   });
   if (check) {
     alert("Đăng nhập thành công");
+
     listForm.forEach((item) => {
+      localStorage.setItem("user-login", item.input.value);
       item.input.value = "";
     });
+    window.location = "file:///F:/FormValidate/home.html";
   }
 };
 
@@ -211,3 +222,5 @@ const formSubmit = () => {
   }
 };
 formSubmit();
+
+//export default listRegexInput;
