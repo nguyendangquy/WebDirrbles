@@ -1,11 +1,8 @@
-/* Convert Form sign-up , sign-in */
 const users = localStorage.getItem("user-login");
 if (users) {
-  alert("Bạn cần đăng xuất trước khi truy cập trang login");
-  window.location = "file:///F:/FormValidate/home.html";
-} else {
-  console.log("not loggedin");
+  window.location = "home.html";
 }
+
 const signUpButton = document.getElementById("signUp");
 const signInButton = document.getElementById("signIn");
 const container = document.getElementById("container");
