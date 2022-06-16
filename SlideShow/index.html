@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- fontawesome icon -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="slideshow">
+        <i class="fa-solid fa-angle-left icon-prev" onclick="plusSlide(-1)"></i>
+        <div class="slideshow-background">
+          <div class="slideshow-item fade">
+            <img src="images/4.jpg" alt="akaza" />
+          </div>
+          <div class="slideshow-item fade">
+            <img src="images/5.jpg" alt="" />
+          </div>
+          <div class="slideshow-item fade">
+            <img src="images/1.jpg" alt="" />
+          </div>
+        </div>
+
+        <i class="fa-solid fa-angle-right icon-next" onclick="plusSlide(1)"></i>
+      </div>
+      <div class="slideshow-dots">
+        <span class="slideshow-dots-item active"></span>
+        <span class="slideshow-dots-item"></span>
+        <span class="slideshow-dots-item"></span>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
