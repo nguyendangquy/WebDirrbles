@@ -1,56 +1,57 @@
-let slideIndex = 1;
+function Slider(container) {
+  this.container = document.querySelector(container);
+  this.slides = this.container.getElementsByClassName("mySlides");
+  this.dots = this.container.getElementsByClassName("dot");
+  this.btnNext = this.container.querySelector(".next");
+  this.btnPrev = this.container.querySelector(".prev");
+  this.slideIndex = 1;
 
-showSlides(slideIndex);
+  this.showSlides = (n) => {
+    let { slides, dots } = this;
+    if (n > slides.length) {
+      this.slideIndex = 1;
+    }
+    if (n < 1) {
+      this.slideIndex = slides.length;
+    }
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    for (let i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[this.slideIndex - 1].style.display = "block";
+    dots[this.slideIndex - 1].className += " active";
+  };
 
-function autoPlay(n) {
-  slideIndex++;
-  console.log(n);
-  showSlides(n);
+  const plusSlides = (n) => {
+    this.showSlides((this.slideIndex += n));
+  };
+
+  const currentSlide = (n) => {
+    this.showSlides((this.slideIndex = n));
+  };
+
+  const autoPlay = (n) => {
+    this.slideIndex++;
+    this.showSlides(n);
+  };
+  setInterval(() => {
+    autoPlay(this.slideIndex + 1);
+  }, 4000);
+
+  this.btnNext.addEventListener("click", () => plusSlides(1));
+  this.btnPrev.addEventListener("click", () => plusSlides(-1));
+
+  for (let i = 0; i < this.dots.length; i++) {
+    this.dots[i].addEventListener("click", () => {
+      currentSlide(i + 1);
+    });
+  }
 }
 
-setInterval(() => {
-  autoPlay(slideIndex + 1);
-}, 4000);
+const bannerSlider = new Slider("#banner");
+bannerSlider.showSlides(1);
 
-function plusSlide(n) {
-  showSlides((slideIndex += n));
-}
-
-function currentSlides(n) {
-  if (n == -1) {
-    slideIndex = slideIndex - 1;
-  } else if (n == 0) {
-    slideIndex = slideIndex + 1;
-  } else {
-    slideIndex = n;
-  }
-  showSlides(slideIndex);
-}
-
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("slideshow-item");
-  let dots = document.getElementsByClassName("slideshow-dots-item");
-  if (n > slides.length) {
-    slideIndex = 1;
-  }
-  if (n < 1) {
-    slideIndex = slides.length;
-  }
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex - 1].style.display = "block";
-  dots[slideIndex - 1].className += " active";
-  // console.log(slideIndex);
-}
-let dots = document.getElementsByClassName("slideshow-dots-item");
-
-for (let i = 0; i < dots.length; i++) {
-  dots[i].addEventListener("click", () => {
-    currentSlides(i + 1);
-  });
-}
+const bannerSlider2 = new Slider("#banner2");
+bannerSlider2.showSlides(1);
