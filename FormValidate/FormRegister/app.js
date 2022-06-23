@@ -1,4 +1,5 @@
 const users = localStorage.getItem("user-login");
+
 if (users) {
   window.location = "home.html";
 }
@@ -32,7 +33,7 @@ const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 const regexPassword =
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
 
-const listRegexInput = [
+listRegexInput = [
   {
     id: "name",
     index: 0,
@@ -163,7 +164,7 @@ const successForSignup = () => {
     }
   });
   if (check) {
-    alert("Đăng ký thành công");
+    getUserRegister();
     listForm.forEach((item) => {
       item.input.value = "";
     });
@@ -179,13 +180,10 @@ const successForSignin = () => {
     }
   });
   if (check) {
-    alert("Đăng nhập thành công");
-
+    getUserLogin();
     listForm.forEach((item) => {
-      localStorage.setItem("user-login", item.input.value);
       item.input.value = "";
     });
-    window.location = "file:///F:/FormValidate/home.html";
   }
 };
 
@@ -203,6 +201,70 @@ eyePassword.addEventListener("click", () => {
   passSignin.type = passSignin.type === "password" ? "text" : "password";
 });
 
+function getUserRegister() {
+  btnSubmitSignup.disabled = true;
+  btnSubmitSignup.classList.add("disabled");
+  const valueInputRegister = {
+    email: email.value,
+    password: password.value,
+  };
+  fetch("https://reqres.in/api/register", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(valueInputRegister),
+  })
+    .then(function (response) {
+      if (response.status === 200) {
+        alert("Đăng ký thành công");
+      }
+      if (response.status === 400) {
+        alert("Error");
+      }
+      btnSubmitSignup.disabled = false;
+      btnSubmitSignup.classList.remove("disabled");
+
+      return response.json();
+    })
+
+    .catch(function (err) {
+      console.log(err);
+    });
+}
+
+function getUserLogin() {
+  btnSubmitSignin.disabled = true;
+  btnSubmitSignin.classList.add("disabled");
+  const valueInputLogin = {
+    email: emailSignin.value,
+    password: passSignin.value,
+  };
+  fetch("https://reqres.in/api/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(valueInputLogin),
+  })
+    .then(function (response) {
+      if (response.status === 200) {
+        localStorage.setItem("user-login", email);
+        localStorage.setItem("user-login", password);
+
+        window.location = "home.html";
+      }
+      if (response.status === 400) {
+        alert("Tài khoản hoặc mật khẩu không chính xác! ");
+      }
+      btnSubmitSignin.disabled = false;
+      btnSubmitSignin.classList.remove("disabled");
+      return response.json();
+    })
+
+    .catch(function () {
+      console.log("error");
+    });
+}
+
 const formSubmit = () => {
   btnSubmitSignup.addEventListener("click", (e) => {
     e.preventDefault();
@@ -218,6 +280,5 @@ const formSubmit = () => {
     validateOnchange(i);
   }
 };
-formSubmit();
 
-//export default listRegexInput;
+formSubmit();
