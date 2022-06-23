@@ -27,6 +27,8 @@ const emailSignin = document.getElementById("emailSignin");
 const passSignin = document.getElementById("passSignin");
 const eyePassword = document.getElementById("eyePassword");
 
+const baseURLRegister = "https://reqres.in/api/register";
+const baseURLLogin = "https://reqres.in/api/login";
 const regexFullName =
   /^(?=.*\D)(?=.*[^@$!%*?&])[\D]*[^@$!%`1*?&]*[\D]*[^~!@##$%^&*()0-9]+$/;
 const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -208,7 +210,7 @@ function getUserRegister() {
     email: email.value,
     password: password.value,
   };
-  fetch("https://reqres.in/api/register", {
+  fetch(baseURLRegister, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(valueInputRegister),
@@ -220,14 +222,16 @@ function getUserRegister() {
       if (response.status === 400) {
         alert("Error");
       }
-      btnSubmitSignup.disabled = false;
-      btnSubmitSignup.classList.remove("disabled");
 
       return response.json();
     })
 
     .catch(function (err) {
       console.log(err);
+    })
+    .finally(function () {
+      btnSubmitSignup.disabled = false;
+      btnSubmitSignup.classList.remove("disabled");
     });
 }
 
@@ -238,7 +242,7 @@ function getUserLogin() {
     email: emailSignin.value,
     password: passSignin.value,
   };
-  fetch("https://reqres.in/api/login", {
+  fetch(baseURLLogin, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -255,17 +259,20 @@ function getUserLogin() {
       if (response.status === 400) {
         alert("Tài khoản hoặc mật khẩu không chính xác! ");
       }
-      btnSubmitSignin.disabled = false;
-      btnSubmitSignin.classList.remove("disabled");
+
       return response.json();
     })
 
     .catch(function () {
       console.log("error");
+    })
+    .finally(function () {
+      btnSubmitSignin.disabled = false;
+      btnSubmitSignin.classList.remove("disabled");
     });
 }
 
-const formSubmit = () => {
+const submitForm = () => {
   btnSubmitSignup.addEventListener("click", (e) => {
     e.preventDefault();
     setSuccessFor(false);
@@ -281,4 +288,4 @@ const formSubmit = () => {
   }
 };
 
-formSubmit();
+submitForm();
