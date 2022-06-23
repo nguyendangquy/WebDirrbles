@@ -33,7 +33,7 @@ const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 const regexPassword =
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
 
-listRegexInput = [
+const listRegexInput = [
   {
     id: "name",
     index: 0,
