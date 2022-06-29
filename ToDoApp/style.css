@@ -1,0 +1,136 @@
+body {
+  margin: 0;
+  min-width: 250px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  cursor: pointer;
+  position: relative;
+  list-style-type: none;
+  background: #eee;
+  font-size: 18px;
+  transition: 0.2s;
+  user-select: none;
+}
+#list-job {
+  font-size: 18px;
+}
+.name-status {
+  width: 90%;
+}
+.name-status:hover {
+  background: #ddd;
+}
+
+.name-status.checked {
+  background: #888;
+  color: #fff;
+  text-decoration: line-through;
+}
+
+.name-status.checked {
+  background: #888;
+  color: #fff;
+  text-decoration: line-through;
+}
+
+.close:hover {
+  background-color: #f44336;
+  color: white;
+}
+
+.todo-job {
+  display: flex;
+  justify-content: space-between;
+  background: #eee;
+  height: 40px;
+  line-height: 40px;
+  width: 100%;
+  cursor: pointer;
+}
+.icon-job {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10%;
+}
+.icon-job i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+}
+.edit:hover {
+  background-color: #f44336;
+  color: white;
+}
+
+.header {
+  background-color: #f44336;
+  padding: 30px 40px;
+  color: white;
+  text-align: center;
+}
+
+.header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+input {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  width: 75%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+}
+
+.addBtn {
+  padding: 10px;
+  width: 25%;
+  background: #d9d9d9;
+  color: #555;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 0;
+}
+
+.addBtn:hover {
+  background-color: #bbb;
+}
+.editBtn {
+  padding: 10px;
+  width: 25%;
+  background: #d9d9d9;
+  color: #555;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 0;
+  display: none;
+}
+.editBtn:hover {
+  background-color: #bbb;
+}
+
+.todo-list {
+  text-align: center;
+}

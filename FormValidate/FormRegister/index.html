@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+    <!-- reset css -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- fontawesome icon -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container" id="container">
+      <!-- Form Sign-up -->
+      <div class="form-container sign-up-container">
+        <form>
+          <h1>Đăng ký</h1>
+          <div class="form-column">
+            <div class="form-column-heading">Name</div>
+            <div class="form-column-input">
+              <span class="input-icon">
+                <i class="fa-solid fa-user"></i>
+              </span>
+              <input class="input-item" id="nameInput" type="text" />
+            </div>
+            <p class="input-item__error"></p>
+            <p class="input-item__rule">
+              Tên người dùng không được chứa số hoặc ký tự đặc biệt
+            </p>
+          </div>
+
+          <div class="form-column">
+            <div class="form-column-heading">Email</div>
+            <div class="form-column-input">
+              <span class="input-icon">
+                <i class="fa-solid fa-envelope"></i>
+              </span>
+              <input class="input-item" id="emailInput" type="email" />
+            </div>
+            <p class="input-item__error"></p>
+            <p class="input-item__rule">Email có dạng abc@abc.com</p>
+          </div>
+
+          <div class="form-column">
+            <div class="form-column-heading">Password</div>
+            <div class="form-column-input">
+              <span class="input-icon">
+                <i class="fa-solid fa-key"></i>
+              </span>
+              <input class="input-item" id="passInput" type="password" />
+            </div>
+            <p class="input-item__error"></p>
+            <p class="input-item__rule">
+              Mật khẩu ít nhất 8 ký tự, có ít nhất 1 chữ hoa, chữ thường, ký tự
+              đặc biệt
+            </p>
+          </div>
+
+          <div class="form-column">
+            <div class="form-column-heading">Comfirm password</div>
+            <div class="form-column-input">
+              <span class="input-icon">
+                <i class="fa-solid fa-key"></i>
+              </span>
+              <input class="input-item" id="confirmInput" type="password" />
+            </div>
+            <p class="input-item__error"></p>
+            <p class="input-item__rule">Nhập chính xác theo ô password</p>
+          </div>
+
+          <div class="form-btn">
+            <button class="btn-submit" type="submit" id="disableBtn">
+              Đăng ký
+            </button>
+          </div>
+        </form>
+      </div>
+      <!-- Form Sign-in -->
+      <div class="form-container sign-in-container">
+        <form>
+          <h1>Đăng nhập</h1>
+          <div class="form-column">
+            <div class="form-column-heading">Email</div>
+            <div class="form-column-input">
+              <span class="input-icon">
+                <i class="fa-solid fa-envelope"></i>
+              </span>
+              <input class="input-item" id="emailSignin" type="email" />
+            </div>
+            <p class="input-item__error"></p>
+            <p class="input-item__rule">Email có dạng abc@abc.com</p>
+          </div>
+
+          <div class="form-column">
+            <div class="form-column-heading">Password</div>
+            <div class="form-column-input">
+              <span class="input-icon">
+                <i class="fa-solid fa-key"></i>
+              </span>
+              <input class="input-item" id="passSignin" type="password" />
+              <i class="fa-solid fa-eye" id="eyePassword"></i>
+            </div>
+            <p class="input-item__error"></p>
+            <p class="input-item__rule">
+              Mật khẩu ít nhất 8 ký tự, có ít nhất 1 chữ hoa, chữ thường, ký tự
+              đặc biệt
+            </p>
+          </div>
+
+          <div class="form-btn">
+            <button class="btn-submit" type="submit" id="disableSignin">
+              Đăng nhập
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Tab Overplay -->
+      <div class="overlay-container">
+        <div class="overlay">
+          <div class="overlay-panel overlay-left">
+            <h1>Chào mừng bạn trở lại</h1>
+            <p>
+              Nếu bạn đã có tài khoản hãy đăng nhập bằng thông tin cá nhân của
+              bạn.
+            </p>
+            <button class="btn-sign" id="signIn">Đăng nhập</button>
+          </div>
+          <div class="overlay-panel overlay-right">
+            <h1>Chào bạn</h1>
+            <p>
+              Nếu bạn chưa có tài khoản cá nhân hãy đăng ký để bắt đầu hành
+              trình với chúng tôi.
+            </p>
+            <button class="btn-sign" id="signUp">Đăng ký</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
