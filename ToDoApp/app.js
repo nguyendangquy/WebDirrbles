@@ -107,7 +107,7 @@ function handleCreateJob() {
         },
         body: JSON.stringify(dataForm),
       };
-      fetch(jobsApi, options).then(function (response) {
+      fetch(jobsApi, options).then(function () {
         initData();
       });
     }
@@ -140,7 +140,6 @@ function handleEditJob(item) {
 }
 
 function handleUpdateStatus(item) {
-  console.log("das");
   let dataForm = {
     name: item.name,
     status: !item.status,
