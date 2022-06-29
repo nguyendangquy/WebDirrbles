@@ -101,7 +101,7 @@ input {
 .addBtn {
   padding: 10px;
   width: 25%;
-  background: #d9d9d9;
+  background: #df6808;
   color: #555;
   float: left;
   text-align: center;
@@ -111,13 +111,15 @@ input {
   border-radius: 0;
 }
 
-.addBtn:hover {
-  background-color: #bbb;
+.addBtn.disabled {
+  background: #8c8184;
+  cursor: auto;
 }
+
 .editBtn {
   padding: 10px;
   width: 25%;
-  background: #d9d9d9;
+  background: #df6808;
   color: #555;
   float: left;
   text-align: center;
@@ -126,9 +128,6 @@ input {
   transition: 0.3s;
   border-radius: 0;
   display: none;
-}
-.editBtn:hover {
-  background-color: #bbb;
 }
 
 .todo-list {

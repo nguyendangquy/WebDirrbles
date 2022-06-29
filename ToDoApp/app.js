@@ -7,36 +7,32 @@ const todolist = document.querySelector(".todo-list");
 const nameInput = document.querySelector("#myInput");
 
 let currentJob = null;
-initData();
+fetchData();
 handleCreateJob();
 
 editBtnJob.addEventListener("click", () => {
-  const dataForm = {
+  const formData = {
     name: nameInput.value,
   };
-  const options = {
+  const option = {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(dataForm),
+    body: JSON.stringify(formData),
   };
-  fetch(jobsApi + "/" + currentJob.id, options)
-    .then(function (response) {
-      return response.json();
-    })
+  fetch(`${jobsApi}/${currentJob.id}`, option)
+    .then((response) => response.json())
     .then(function () {
-      initData();
+      fetchData();
       nameInput.value = "";
       addBtnJob.style.display = "block";
       editBtnJob.style.display = "none";
     })
-    .catch(function (err) {
-      console.log(err);
-    });
+    .catch((err) => console.log(err));
 });
 
-function initData() {
+function fetchData() {
   let data = [];
   fetch(jobsApi)
     .then(async (response) => {
@@ -54,13 +50,11 @@ function initData() {
         <i class="fa-solid fa-xmark close" id = "delete-${job.id}"></i>
         <i class="fa-solid fa-pen-to-square edit" id = "edit-${job.id}"></i>
         </div>
-
-
         </div>
           `;
       });
       listJobsBlock.innerHTML = htmls.join("");
-      if (data.length == 0) {
+      if (!data.length) {
         todolist.innerHTML = "Không có công việc nào trong danh sách";
         return;
       } else {
@@ -85,49 +79,54 @@ function initData() {
         });
       }
     })
-    .catch(function (err) {
-      console.log(err);
-    });
+    .catch((err) => console.log(err));
 }
 
 function handleCreateJob() {
   addBtnJob.addEventListener("click", () => {
-    const valueInput = document.querySelector("#myInput").value;
-    const dataForm = {
-      name: valueInput,
+    const inputValue = document.querySelector("#myInput").value;
+    addBtnJob.disabled = true;
+    addBtnJob.classList.add("disabled");
+    const formData = {
+      name: inputValue,
       status: false,
     };
-    if (valueInput === "") {
+
+    if (inputValue === "") {
       alert("Tiêu đề không được đề trống");
     } else {
-      const options = {
+      const option = {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(dataForm),
+        body: JSON.stringify(formData),
       };
-      fetch(jobsApi, options).then(function () {
-        initData();
-      });
+      fetch(jobsApi, option)
+        .then(function () {
+          fetchData();
+        })
+        .catch((err) => console.log(err))
+        .finally(() => {
+          addBtnJob.disabled = false;
+          addBtnJob.classList.remove("disabled");
+        });
     }
     document.querySelector("#myInput").value = "";
   });
 }
 
 function handleDeleteJob(item) {
-  const options = {
+  const option = {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
     },
   };
-  fetch(jobsApi + "/" + item.id, options)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function () {
-      initData();
+  fetch(`${jobsApi}/${item.id}`, option)
+    .then((response) => response.json())
+    .then(() => {
+      fetchData();
     });
 }
 
@@ -140,26 +139,22 @@ function handleEditJob(item) {
 }
 
 function handleUpdateStatus(item) {
-  let dataForm = {
+  const formData = {
     name: item.name,
     status: !item.status,
   };
-  const options = {
+  const option = {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(dataForm),
+    body: JSON.stringify(formData),
   };
 
-  fetch(jobsApi + "/" + item.id, options)
-    .then(function (response) {
-      return response.json();
+  fetch(`${jobsApi}/${item.id}`, option)
+    .then((response) => response.json())
+    .then(() => {
+      fetchData();
     })
-    .then(function () {
-      initData();
-    })
-    .catch(function (err) {
-      console.log(err);
-    });
+    .catch((err) => console.log(err));
 }
