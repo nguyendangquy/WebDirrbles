@@ -1,0 +1,177 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+body {
+  margin: 0;
+  min-width: 250px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  cursor: pointer;
+  position: relative;
+  list-style-type: none;
+  background: #eee;
+  font-size: 18px;
+  transition: 0.2s;
+  user-select: none;
+}
+#list-job {
+  font-size: 18px;
+}
+.name-status {
+  width: 90%;
+}
+.name-status:hover {
+  background: #ddd;
+}
+
+.name-status.checked {
+  background: #888;
+  color: #fff;
+  text-decoration: line-through;
+}
+
+.name-status.checked {
+  background: #888;
+  color: #fff;
+  text-decoration: line-through;
+}
+
+.close:hover {
+  background-color: #f44336;
+  color: white;
+}
+
+.todo-job {
+  display: flex;
+  justify-content: space-between;
+  background: #eee;
+  height: 40px;
+  line-height: 40px;
+  width: 100%;
+  cursor: pointer;
+  padding-left: 10px;
+}
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+}
+
+.icon-job {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10%;
+}
+
+.icon-check {
+  color: #4fff4f;
+  display: none;
+}
+
+.icon-job .close {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+}
+.icon-job .edit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+}
+.edit:hover {
+  background-color: #f44336;
+  color: white;
+}
+
+.header {
+  background-color: #f44336;
+  padding: 30px 40px;
+  color: white;
+  text-align: center;
+}
+
+.header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+input {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  width: 75%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+}
+
+.addBtn {
+  padding: 10px;
+  width: 25%;
+  background: #df6808;
+  color: #555;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 0;
+}
+
+.editBtn {
+  padding: 10px;
+  width: 25%;
+  background: #df6808;
+  color: #555;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 0;
+}
+
+.todo-list {
+  text-align: center;
+}
+
+.select-status {
+  background-color: #cccdde;
+  border: none;
+  outline: none;
+  color: #585858;
+  cursor: pointer;
+  padding: 10px;
+  width: 150px;
+  font-size: 18px;
+  font-weight: 500;
+  float: left;
+}
