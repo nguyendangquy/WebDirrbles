@@ -1,5 +1,3 @@
-import React from "react";
-
 export const optionStatus = [
   {
     id: 1,
@@ -10,3 +8,8 @@ export const optionStatus = [
     title: "completed",
   },
 ];
+
+export const TODO_STATUS = {
+  TODO: 1,
+  DONE: 2,
+};

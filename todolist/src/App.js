@@ -1,35 +1,41 @@
 import { useRef, useState } from "react";
+import { v4 } from "uuid";
 import "./App.css";
 import TodoItem from "./Components/TodoItem";
 
 import { ToastContainer, toast } from "react-toastify";
-import { optionStatus } from "./constants";
+import { optionStatus, TODO_STATUS } from "./constants";
 import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const inputRef = useRef();
   const [job, setJob] = useState("");
+
   const [jobs, setJobs] = useState(() => {
     const storageJobs = JSON.parse(localStorage.getItem("jobs")) || job;
     return storageJobs;
   });
-  const [id, setID] = useState();
+  const [curentID, setCurentID] = useState();
   const [isEdit, setIsEdit] = useState(false);
-  const [status, setStatus] = useState("incomplete");
+  const STATUS_OPTIONS = [
+    { value: TODO_STATUS.TODO, label: "incomplete" },
+    { value: TODO_STATUS.DONE, label: "completed" },
+  ];
+  const [status, setStatus] = useState(STATUS_OPTIONS.label);
 
   const handleAdd = () => {
     if (!job) {
       toast.error("Missing title Todo!");
       inputRef.current.focus();
     } else {
-      const jobitem = {
+      const jobItem = {
+        id: v4(),
         name: job,
-        status: status,
+        status,
         time: new Date().toLocaleString(),
       };
-
       setJobs((prev) => {
-        const newJobs = [jobitem, ...prev];
+        const newJobs = [jobItem, ...prev];
         const jsonJobs = JSON.stringify(newJobs);
         localStorage.setItem("jobs", jsonJobs);
         return newJobs;
@@ -40,9 +46,9 @@ function App() {
       inputRef.current.focus();
     }
   };
-  const handleDelete = (index) => {
+  const handleDelete = (id) => {
     setJobs((prev) => {
-      const newJobs = prev.filter((item, id) => id !== index);
+      const newJobs = prev.filter((item) => id !== item.id);
       localStorage.setItem("jobs", JSON.stringify(newJobs));
       return newJobs;
     });
@@ -50,11 +56,12 @@ function App() {
   const handleChange = () => {
     setJobs((prevJob) => {
       if (job.length > 0) {
-        prevJob[id].name = job;
-        prevJob[id].status = status;
+        const todoJob = prevJob.find((item) => item.id === curentID);
+        todoJob.name = job;
+        todoJob.status = status;
         localStorage.setItem("jobs", JSON.stringify(prevJob));
-        return prevJob;
       }
+      return prevJob;
     });
     setIsEdit(false);
     toast.success("Task Updated Successfully");
@@ -62,10 +69,11 @@ function App() {
     inputRef.current.focus();
   };
   const handleEdit = (id) => {
-    setJob(jobs[id].name);
-    setStatus(jobs[id].status);
+    const todo = jobs.find((item) => item.id === id);
+    setJob(todo.name);
+    setStatus(todo.status);
+    setCurentID(id);
     setIsEdit(true);
-    setID(id);
     inputRef.current.focus();
   };
   const handleAddStatus = (e) => {
@@ -102,8 +110,8 @@ function App() {
           value={status}
           onChange={(e) => handleAddStatus(e)}
         >
-          {optionStatus.map((item, index) => (
-            <option value={item.id} key={index}>
+          {optionStatus.map((item) => (
+            <option value={item.id} key={item.id}>
               {item.title}
             </option>
           ))}
@@ -123,14 +131,14 @@ function App() {
       <div className="todo-content">
         {!jobs.length
           ? "There are no jobs on the to-do list"
-          : jobs.map((job, index) => {
+          : jobs.map((job) => {
               return (
                 <TodoItem
                   key={job.id}
-                  jobitem={job}
+                  jobItem={job}
                   job={job.name}
-                  onDeleteJob={() => handleDelete(index)}
-                  onEditJob={() => handleEdit(index)}
+                  onDeleteJob={() => handleDelete(job.id)}
+                  onEditJob={() => handleEdit(job.id)}
                 />
               );
             })}

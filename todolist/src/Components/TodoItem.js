@@ -1,15 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 
-function TodoItem({ jobitem, onEditJob, onDeleteJob }) {
+function TodoItem({ jobItem, onEditJob, onDeleteJob }) {
   return (
     <div className="todo-job">
       <div className="todo-item">
-        <span className={jobitem.status == 2 ? "todo-title-completed " : ""}>
-          {jobitem.name}
+        <span
+          className={
+            Number(jobItem.status) === 2 ? "todo-title-completed " : ""
+          }
+        >
+          {jobItem.name}
         </span>
-        <p className="todo-time">{jobitem.time}</p>
+        <p className="todo-time">{jobItem.time}</p>
       </div>
       <div className="icon-job">
         <div className="icon-job-button" onClick={onEditJob}>

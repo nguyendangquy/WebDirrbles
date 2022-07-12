@@ -72,6 +72,7 @@ li {
 .todo-item {
   display: flex;
   flex-direction: column;
+  font-weight: 600;
 }
 
 .icon-job {
@@ -164,6 +165,7 @@ input {
 
 .todo-title-completed {
   text-decoration: line-through;
+  color: #606066;
 }
 .todo-time {
   font-size: 12px;
