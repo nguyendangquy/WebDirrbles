@@ -1,29 +1,23 @@
-import React from "react";
-
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 
-function TodoItem({ jobItem, onEditJob, onDeleteJob }) {
+const TodoItem = ({ status, deleteTodo, task, editTodo }) => {
   return (
     <div className="todo-job">
       <div className="todo-item">
-        <span
-          className={
-            Number(jobItem.status) === 2 ? "todo-title-completed " : ""
-          }
-        >
-          {jobItem.name}
+        <span className={status === "2" ? "todo-title-completed " : ""}>
+          {task}
         </span>
-        <p className="todo-time">{jobItem.time}</p>
       </div>
       <div className="icon-job">
-        <div className="icon-job-button" onClick={onEditJob}>
+        <div className="icon-job-button" onClick={editTodo}>
           <EditOutlined className="edit" />
         </div>
-        <div className="icon-job-button" onClick={onDeleteJob}>
+        <div className="icon-job-button" onClick={deleteTodo}>
           <DeleteOutlined className="close" />
         </div>
       </div>
     </div>
   );
-}
+};
+
 export default TodoItem;
