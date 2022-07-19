@@ -55,7 +55,7 @@ const TodoList = () => {
     inputRef.current.focus();
   };
   const handleAddStatus = (e) => {
-    setStatus(e.target.value);
+    setStatus(Number(e.target.value));
     inputRef.current.focus();
   };
   return (

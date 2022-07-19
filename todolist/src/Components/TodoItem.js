@@ -9,9 +9,7 @@ const TodoItem = ({ todo, deleteTodo, editTodo }) => {
       <div className="todo-item">
         <span
           className={
-            Number(todo.status) === TODO_STATUS.DONE
-              ? "todo-title-completed "
-              : ""
+            todo.status === TODO_STATUS.DONE ? "todo-title-completed " : ""
           }
         >
           {todo.task}
@@ -30,10 +28,12 @@ const TodoItem = ({ todo, deleteTodo, editTodo }) => {
   );
 };
 TodoItem.propTypes = {
-  task: PropTypes.string,
-  status: PropTypes.number,
+  todo: PropTypes.shape({
+    id: PropTypes.string,
+    task: PropTypes.string,
+    status: PropTypes.number,
+  }),
   editTodo: PropTypes.func.isRequired,
   deleteTodo: PropTypes.func.isRequired,
 };
-
 export default memo(TodoItem);
