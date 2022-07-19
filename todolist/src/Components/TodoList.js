@@ -114,7 +114,6 @@ const TodoList = () => {
                 <CSSTransition key={todo.id} timeout={500}>
                   <TodoItem
                     key={todo.id}
-                    id={todo.id}
                     todo={todo}
                     deleteTodo={() => dispatch(deleteTodo(todo))}
                     editTodo={() => handleEdit(todo.id)}
