@@ -1,30 +1,23 @@
 import React, { useState, useRef } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import { TODO_STATUS } from "../constants";
-import "react-toastify/dist/ReactToastify.css";
-// import TodoInput from "./TodoInput";
-import { useSelector, useDispatch } from "react-redux";
 import TodoItem from "./TodoItem";
-
-import { CSSTransition } from "react-transition-group";
+import { STATUS_OPTIONS } from "../constants";
+import { useSelector, useDispatch } from "react-redux";
 import { addTodo, deleteTodo, editTodo } from "../redux/action";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
+import { CSSTransition } from "react-transition-group";
 import { v4 } from "uuid";
 
 const TodoList = () => {
   const state = useSelector((state) => ({ ...state.todos }));
-  const [curentID, setCurentID] = useState();
-
   const todoList = state.todos;
+  const [selectedId, setSelectedId] = useState();
+
   const dispatch = useDispatch();
 
   const inputRef = useRef();
   const [task, setTask] = useState("");
   const [isEdit, setIsEdit] = useState(false);
-
-  const STATUS_OPTIONS = [
-    { value: TODO_STATUS.TODO, label: "incomplete" },
-    { value: TODO_STATUS.DONE, label: "completed" },
-  ];
 
   const [status, setStatus] = useState(STATUS_OPTIONS[0].value);
   const handleAdd = () => {
@@ -37,6 +30,7 @@ const TodoList = () => {
           id: v4(),
           task,
           status,
+          time: new Date().toLocaleString(),
         })
       );
       toast.success("Task Created SuccessFully");
@@ -45,16 +39,16 @@ const TodoList = () => {
     }
   };
   const handleEdit = (id) => {
-    const todos = state.todos.find((item) => item.id === id);
-    setTask(todos.task);
-    setStatus(todos.status);
+    const todoSelected = state.todos.find((item) => item.id === id);
+    setTask(todoSelected.task);
+    setStatus(todoSelected.status);
     setIsEdit(true);
-    setCurentID(id);
+    setSelectedId(id);
     inputRef.current.focus();
   };
 
   const handleChange = () => {
-    dispatch(editTodo({ curentID, task, status }));
+    dispatch(editTodo({ selectedId, task, status }));
     setIsEdit(false);
     toast.success("Task Edited SuccessFully");
     setTask("");
@@ -65,7 +59,7 @@ const TodoList = () => {
     inputRef.current.focus();
   };
   return (
-    <div className="TodoList">
+    <div className="todoList">
       <div id="myDIV" className="header">
         <h2>My To Do List</h2>
         <input
@@ -92,7 +86,7 @@ const TodoList = () => {
           id="status"
           className="select-status"
           value={status}
-          onChange={(e) => handleAddStatus(e)}
+          onChange={handleAddStatus}
         >
           {STATUS_OPTIONS.map((item) => (
             <option value={item.value} key={item.value}>
@@ -102,7 +96,7 @@ const TodoList = () => {
         </select>
         <ToastContainer
           position="top-right"
-          autoClose={3000}
+          autoClose={2000}
           hideProgressBar={false}
           newestOnTop={false}
           closeOnClick
@@ -121,8 +115,7 @@ const TodoList = () => {
                   <TodoItem
                     key={todo.id}
                     id={todo.id}
-                    task={todo.task}
-                    status={todo.status}
+                    todo={todo}
                     deleteTodo={() => dispatch(deleteTodo(todo))}
                     editTodo={() => handleEdit(todo.id)}
                     updateTodo={handleChange}

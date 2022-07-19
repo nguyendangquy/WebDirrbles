@@ -9,6 +9,7 @@ const todosReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.ADD_TODO:
       const addedTodos = [...state.todos, action.payload];
+
       return {
         ...state,
         todos: addedTodos,
@@ -23,14 +24,14 @@ const todosReducer = (state = initialState, action) => {
       };
     case types.EDIT_TODO:
       const editedTodo = state.todos.map((todo) => {
-        console.log(todo.id, action.payload.curentID);
-        if (todo.id === action.payload.curentID) {
+        if (todo.id === action.payload.selectedId) {
           return {
             ...todo,
             task: action.payload.task,
             status: action.payload.status,
           };
         }
+
         return todo;
       });
       return {
