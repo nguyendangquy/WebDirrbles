@@ -1,9 +1,9 @@
 import { memo } from "react";
+import PropTypes from "prop-types";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import { TODO_STATUS } from "../constants";
 
 const TodoItem = ({ todo, deleteTodo, editTodo }) => {
-  console.log("re-render");
   return (
     <div className="todo-job">
       <div className="todo-item">
@@ -28,6 +28,12 @@ const TodoItem = ({ todo, deleteTodo, editTodo }) => {
       </div>
     </div>
   );
+};
+TodoItem.propTypes = {
+  task: PropTypes.string,
+  status: PropTypes.number,
+  editTodo: PropTypes.func.isRequired,
+  deleteTodo: PropTypes.func.isRequired,
 };
 
 export default memo(TodoItem);
